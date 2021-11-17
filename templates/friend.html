@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X_UA-Compatible" contents="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+    <title>Contents</title>
+</head>
+<div class="topnav">
+	<a href="data">Stats</a>
+	<a href="friend">Add Friend</a>
+	<a href="friends">Friends</a>
+	<a href="/">Logout</a>
+</div>
+
+<h1>Add Friend</h1>
+<form action="/addfriend" method="post">
+<input type="text" name="monkey" required>
+<input type="submit" value="add">
+</form>
+
+<h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</h1>
+
+
+</html>

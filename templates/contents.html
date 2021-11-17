@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X_UA-Compatible" contents="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+    <title>Contents</title>
+</head>
+<div class="topnav">
+	<a href="data">Stats</a>
+	<a href="friend">Add Friend</a>
+	<a href="friends">Friends</a>
+	<a href="/">Logout</a>
+</div>
+
+<body>
+    <h1>Stats for {{ player }} for Lucky 4's</h1>
+    <table>
+        <tr>
+            <th>Gamer</th>
+            <th>Total Wins</th>
+            <th>Total Losses</th>
+            <th>Total Kills </th>
+            <th>Total Final Kills</th>
+            <th>Total Bed Breaks</th>
+        </tr>
+        {% for item in results %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+            <td>{{ item[4] }}</td>
+            <td>{{ item[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        </h1>
+
+</body>
+</html>

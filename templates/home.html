@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X_UA-Compatible" contents="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+    <title>home</title>
+</head>
+<body>
+
+
+<h1>Hypixel Dream Bedwars Stats Tracker</h1>
+<form action="/contents" method="post">
+<input type="text" name="ign" required>
+<input type="submit" value="search">
+</form>
+
+<h1>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</h1>
+
+</body>
+</html>
